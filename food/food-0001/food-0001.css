@@ -1,0 +1,58 @@
+/* =====================
+   内容页 · 图片书（食物篇）
+   ===================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+.food {
+  margin: 0;
+  padding: 0;
+}
+
+/* 每一页 */
+.food-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 图片 */
+.food-page img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* =====================
+   手机端：一页一屏
+   ===================== */
+
+@media (max-width: 768px) {
+
+  .food-page {
+    height: 100vh;
+  }
+
+  .food-page img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* =====================
+   桌面端：A5 阅读尺寸
+   ===================== */
+
+@media (min-width: 769px) {
+
+  .food-page img {
+    width: 680px;      /* 桌面横屏友好 */
+    max-width: 92vw;  /* 防止小屏笔电溢出 */
+  }
+
+}
