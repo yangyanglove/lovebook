@@ -50,15 +50,14 @@ html, body {
 
 @media (min-width: 769px) {
 
-  .issue-page {
-    padding: 0;
+  .issue-page img {
+    width: 680px;      /* 桌面横屏友好 */
+    max-width: 92vw;  /* 防止小屏笔电溢出 */
   }
 
-  .issue-page img {
-    width: 720px;      /* A5 阅读宽度 */
-    max-width: 90vw;
-  }
 }
+}
+
 
 
 
