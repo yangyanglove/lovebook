@@ -55,9 +55,10 @@ html, body {
   }
 
   .issue-page img {
-    width: 520px;      /* A5 阅读宽度 */
+    width: 720px;      /* A5 阅读宽度 */
     max-width: 90vw;
   }
 }
+
 
 
