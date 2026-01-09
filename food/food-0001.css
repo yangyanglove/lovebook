@@ -1,6 +1,5 @@
 /* =====================
    内容页 · 图片书（FOOD）
-   与 memory/issue 保持一致
    ===================== */
 
 html, body {
@@ -33,7 +32,6 @@ html, body {
    ===================== */
 
 @media (max-width: 768px) {
-
   .issue-page {
     height: 100vh;
   }
@@ -50,10 +48,8 @@ html, body {
    ===================== */
 
 @media (min-width: 769px) {
-
   .issue-page img {
-    width: 680px;     /* 桌面横屏友好 */
-    max-width: 92vw;  /* 防止小屏笔电溢出 */
+    width: 680px;
+    max-width: 92vw;
   }
-
 }
