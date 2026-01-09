@@ -1,5 +1,6 @@
 /* =====================
-   内容页 · 图片书（食物篇）
+   内容页 · 图片书（FOOD）
+   与 memory/issue 保持一致
    ===================== */
 
 html, body {
@@ -8,20 +9,20 @@ html, body {
   background: #ffffff;
 }
 
-.food {
+.issue {
   margin: 0;
   padding: 0;
 }
 
 /* 每一页 */
-.food-page {
+.issue-page {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 /* 图片 */
-.food-page img {
+.issue-page img {
   display: block;
   width: 100%;
   height: auto;
@@ -33,11 +34,11 @@ html, body {
 
 @media (max-width: 768px) {
 
-  .food-page {
+  .issue-page {
     height: 100vh;
   }
 
-  .food-page img {
+  .issue-page img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -50,8 +51,8 @@ html, body {
 
 @media (min-width: 769px) {
 
-  .food-page img {
-    width: 680px;      /* 桌面横屏友好 */
+  .issue-page img {
+    width: 680px;     /* 桌面横屏友好 */
     max-width: 92vw;  /* 防止小屏笔电溢出 */
   }
 
