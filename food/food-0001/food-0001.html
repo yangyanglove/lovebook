@@ -10,60 +10,57 @@
 
 <body>
 
-<!-- 顶部返回 · 仅在未阅读时出现 -->
+<!-- 顶部返回 -->
 <a href="/" class="issue-header">返回书架</a>
 
-<body>
+<main class="issue">
 
-<main class="food">
-
-  <!-- cover -->
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-cover.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-01.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-02.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-03.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-04.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-05.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-06.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-07.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-08.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-09.jpg" alt="">
   </div>
 
-  <div class="food-page">
+  <div class="issue-page">
     <img src="../../images/food/food-0001/food-0001-10.jpg" alt="">
   </div>
+
 </main>
 
-<!-- 极简 JS：开始阅读后隐藏顶部返回 -->
 <script>
   const header = document.querySelector('.issue-header');
 
@@ -76,27 +73,21 @@
   }
 
   window.addEventListener('scroll', () => {
-    // 在顶部：左上角显示
     if (isAtTop()) {
       header.classList.remove('hidden');
       header.classList.remove('bottom');
       return;
     }
 
-    // 在底部：左下角显示
     if (isAtBottom()) {
       header.classList.remove('hidden');
       header.classList.add('bottom');
       return;
     }
 
-    // 阅读中段：隐藏
     header.classList.add('hidden');
   });
 </script>
-  
+
 </body>
 </html>
-
-
-
