@@ -84,7 +84,7 @@ html, body {
 }
 
 /* =====================
-   页尾 · 导航（单行）
+   页尾 · 三栏书籍模型
    ===================== */
 
 .issue-footer {
@@ -92,21 +92,31 @@ html, body {
 }
 
 .footer-nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
 
   font-size: 12px;
   color: #777;
+  column-gap: 16px;
 }
 
-/* 左 / 中 / 右 都是同一节奏 */
-.footer-nav span,
-.footer-nav a {
-  white-space: nowrap;
+/* 左栏：上一篇 */
+.footer-nav .prev {
+  text-align: left;
 }
 
-/* 链接样式（克制） */
+/* 中栏：返回首页（永远居中） */
+.footer-nav .home {
+  text-align: center;
+}
+
+/* 右栏：下一篇 */
+.footer-nav .next {
+  text-align: right;
+}
+
+/* 链接样式 */
 .footer-nav a {
   color: rgba(0,0,0,0.6);
   text-decoration: none;
@@ -115,6 +125,3 @@ html, body {
 .footer-nav a:hover {
   color: rgba(0,0,0,0.9);
 }
-
-
-
