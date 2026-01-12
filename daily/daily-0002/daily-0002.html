@@ -56,7 +56,37 @@
 
 </main>
 
+<!-- 极简 JS：开始阅读后隐藏顶部返回 -->
+<script>
+  const header = document.querySelector('.issue-header');
+
+  function isAtTop() {
+    return window.scrollY <= 10;
+  }
+
+  function isAtBottom() {
+    return window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
+  }
+
+  window.addEventListener('scroll', () => {
+    // 在顶部：左上角显示
+    if (isAtTop()) {
+      header.classList.remove('hidden');
+      header.classList.remove('bottom');
+      return;
+    }
+
+    // 在底部：左下角显示
+    if (isAtBottom()) {
+      header.classList.remove('hidden');
+      header.classList.add('bottom');
+      return;
+    }
+
+    // 阅读中段：隐藏
+    header.classList.add('hidden');
+  });
+</script>
+
 </body>
 </html>
-
-
