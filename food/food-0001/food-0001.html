@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>食物 · 第 1 期</title>
+  <title>food · 第 1 期</title>
 
-  <link rel="stylesheet" href="food-0001.css">
+  <link rel="stylesheet" href="daily-0002.css">
 </head>
+
+<body>
+
+<!-- 顶部返回 · 仅在未阅读时出现 -->
+<a href="/" class="issue-header">返回书架</a>
 
 <body>
 
@@ -58,6 +63,39 @@
   </div>
 </main>
 
+<!-- 极简 JS：开始阅读后隐藏顶部返回 -->
+<script>
+  const header = document.querySelector('.issue-header');
+
+  function isAtTop() {
+    return window.scrollY <= 10;
+  }
+
+  function isAtBottom() {
+    return window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
+  }
+
+  window.addEventListener('scroll', () => {
+    // 在顶部：左上角显示
+    if (isAtTop()) {
+      header.classList.remove('hidden');
+      header.classList.remove('bottom');
+      return;
+    }
+
+    // 在底部：左下角显示
+    if (isAtBottom()) {
+      header.classList.remove('hidden');
+      header.classList.add('bottom');
+      return;
+    }
+
+    // 阅读中段：隐藏
+    header.classList.add('hidden');
+  });
+</script>
+  
 </body>
 </html>
+
 
