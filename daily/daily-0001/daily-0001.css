@@ -1,5 +1,5 @@
 /* =====================
-   内容页 · 图片书（FOOD）
+   内容页 · 图片书
    ===================== */
 
 html, body {
@@ -13,14 +13,16 @@ html, body {
   padding: 0;
 }
 
-/* 每一页 */
+/* =====================
+   每一页
+   ===================== */
+
 .issue-page {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* 图片 */
 .issue-page img {
   display: block;
   width: 100%;
@@ -55,11 +57,12 @@ html, body {
 }
 
 /* =====================
-   返回首页（内容页）
+   开头 · 返回书架（只在开头）
    ===================== */
 
-.back-home {
+.issue-header {
   position: fixed;
+  top: 14px;
   left: 14px;
   z-index: 100;
 
@@ -69,33 +72,49 @@ html, body {
   color: rgba(0,0,0,0.45);
   text-decoration: none;
 
-  -webkit-tap-highlight-color: transparent; /* 去除手机点击高亮 */
+  transition: opacity .3s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* 顶部返回 */
-.back-home.top {
-  top: 14px;
+.issue-header.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* 底部返回 */
-.back-home.bottom {
-  bottom: 14px;
-}
-
-/* 强制覆盖所有链接状态（关键） */
-.back-home:link,
-.back-home:visited,
-.back-home:hover,
-.back-home:active {
+.issue-header:link,
+.issue-header:visited,
+.issue-header:hover,
+.issue-header:active {
   color: rgba(0,0,0,0.45);
   text-decoration: none;
 }
 
-/* hover（桌面） */
-.back-home:hover {
+.issue-header:hover {
   color: rgba(0,0,0,0.8);
 }
 
+/* =====================
+   结尾 · 页尾导航（合书）
+   ===================== */
 
+.issue-footer {
+  padding: 80px 16px 40px;
+}
 
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
+  font-size: 12px;
+  color: #777;
+}
+
+.footer-nav a {
+  color: rgba(0,0,0,0.6);
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: rgba(0,0,0,0.9);
+}
