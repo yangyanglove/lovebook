@@ -54,7 +54,7 @@
   const header = document.querySelector('.issue-header');
 
   let hasHidden = false;
-  let hasShownAtBottom = false;
+  let hasFinished = false;
 
   function isAtBottom() {
     return window.innerHeight + window.scrollY >= document.body.offsetHeight - 20;
@@ -63,21 +63,32 @@
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
 
-    // 第一次开始阅读：隐藏
+    // ① 开始阅读：隐藏（只执行一次）
     if (!hasHidden && y > 40) {
       header.classList.add('hidden');
       hasHidden = true;
+      return;
     }
 
-    // 滑到底部：重新显示一次
-    if (hasHidden && !hasShownAtBottom && isAtBottom()) {
+    // ② 读完：在左下角出现（只执行一次）
+    if (hasHidden && !hasFinished && isAtBottom()) {
       header.classList.remove('hidden');
-      hasShownAtBottom = true;
+      header.classList.remove('top');
+      header.classList.add('bottom');
+      hasFinished = true;
+      return;
+    }
+
+    // ③ 读完之后：不再受滚动影响（彻底锁死）
+    if (hasFinished) {
+      return;
     }
   });
 </script>
 
 
+
 </body>
 </html>
+
 
