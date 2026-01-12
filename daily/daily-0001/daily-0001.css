@@ -53,3 +53,27 @@ html, body {
     max-width: 92vw;
   }
 }
+
+/* =====================
+   返回首页（内容页）
+   ===================== */
+
+.back-home {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+
+  font-size: 12px;
+  letter-spacing: 0.02em;
+
+  color: rgba(0, 0, 0, 0.45);
+  text-decoration: none;
+
+  z-index: 100;
+}
+
+.back-home:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+
