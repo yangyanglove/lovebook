@@ -154,22 +154,21 @@ h2 {
    ===================== */
 
 .meta {
-  margin-top: 24px; /* 拉开阴影，画面更干净 */
-  font-size: 13px;
-  color: #666;
+  margin-top: 18px;
+  font-size: 10.5px;
+  color: #777;
 }
 
 .date {
-  margin-top: 4px;
-  font-size: 12px;
-  color: #999;
+  font-size: 9.5px;
+  color: #aaa;
 }
 
 .title {
-  margin-top: 10px;
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 12px;
+  line-height: 1.5;
 }
+
 
 /* =========================================================
    手机端：横向书架 · 一屏两本 · 更小更安静
@@ -218,7 +217,7 @@ h2 {
 
   .book {
   flex: 0 0 auto;
-  width: calc((100vw - 32px - 16px) / 2 - 8px);
+  width: calc((100vw - 32px - 16px) / 2 - 14px);
   scroll-snap-align: start;
 }
 
@@ -273,6 +272,7 @@ h2 {
   }
 
 }
+
 
 
 
