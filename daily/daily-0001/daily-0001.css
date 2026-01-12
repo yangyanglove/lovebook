@@ -60,20 +60,42 @@ html, body {
 
 .back-home {
   position: fixed;
-  top: 14px;
   left: 14px;
+  z-index: 100;
 
   font-size: 12px;
   letter-spacing: 0.02em;
 
-  color: rgba(0, 0, 0, 0.45);
+  color: rgba(0,0,0,0.45);
   text-decoration: none;
 
-  z-index: 100;
+  -webkit-tap-highlight-color: transparent; /* 去除手机点击高亮 */
 }
 
-.back-home:hover {
-  color: rgba(0, 0, 0, 0.8);
+/* 顶部返回 */
+.back-home.top {
+  top: 14px;
 }
+
+/* 底部返回 */
+.back-home.bottom {
+  bottom: 14px;
+}
+
+/* 强制覆盖所有链接状态（关键） */
+.back-home:link,
+.back-home:visited,
+.back-home:hover,
+.back-home:active {
+  color: rgba(0,0,0,0.45);
+  text-decoration: none;
+}
+
+/* hover（桌面） */
+.back-home:hover {
+  color: rgba(0,0,0,0.8);
+}
+
+
 
 
