@@ -243,7 +243,7 @@ h2 {
   }
 
   .cover {
-  transform: scale(0.94);
+  transform: scale(0.97);
   transform-origin: top center;
 
   box-shadow:
@@ -252,4 +252,5 @@ h2 {
 }
 
 }
+
 
