@@ -52,15 +52,32 @@
 <!-- 极简 JS：开始阅读后隐藏顶部返回 -->
 <script>
   const header = document.querySelector('.issue-header');
-  let hidden = false;
+
+  let hasHidden = false;
+  let hasShownAtBottom = false;
+
+  function isAtBottom() {
+    return window.innerHeight + window.scrollY >= document.body.offsetHeight - 20;
+  }
 
   window.addEventListener('scroll', () => {
-    if (!hidden && window.scrollY > 40) {
+    const y = window.scrollY;
+
+    // 第一次开始阅读：隐藏
+    if (!hasHidden && y > 40) {
       header.classList.add('hidden');
-      hidden = true;
+      hasHidden = true;
+    }
+
+    // 滑到底部：重新显示一次
+    if (hasHidden && !hasShownAtBottom && isAtBottom()) {
+      header.classList.remove('hidden');
+      hasShownAtBottom = true;
     }
   });
 </script>
 
+
 </body>
 </html>
+
