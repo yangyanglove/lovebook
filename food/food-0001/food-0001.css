@@ -1,5 +1,5 @@
 /* =====================
-   内容页 · 图片书（食物篇）
+   内容页 · 图片书
    ===================== */
 
 html, body {
@@ -8,20 +8,22 @@ html, body {
   background: #ffffff;
 }
 
-.food {
+.issue {
   margin: 0;
   padding: 0;
 }
 
-/* 每一页 */
-.food-page {
+/* =====================
+   每一页
+   ===================== */
+
+.issue-page {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* 图片 */
-.food-page img {
+.issue-page img {
   display: block;
   width: 100%;
   height: auto;
@@ -32,12 +34,11 @@ html, body {
    ===================== */
 
 @media (max-width: 768px) {
-
-  .food-page {
+  .issue-page {
     height: 100vh;
   }
 
-  .food-page img {
+  .issue-page img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -49,10 +50,61 @@ html, body {
    ===================== */
 
 @media (min-width: 769px) {
-
-  .food-page img {
-    width: 680px;      /* 桌面横屏友好 */
-    max-width: 92vw;  /* 防止小屏笔电溢出 */
+  .issue-page img {
+    width: 680px;
+    max-width: 92vw;
   }
+}
 
+/* =====================
+   顶部返回 · 书架
+   ===================== */
+
+.issue-header {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 100;
+
+  font-size: 12px;
+  letter-spacing: 0.02em;
+
+  color: rgba(0,0,0,0.45);
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity .3s ease;
+}
+
+/* 隐藏状态（阅读开始后） */
+.issue-header.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.issue-header.bottom {
+  top: auto;
+  bottom: 14px;
+}
+
+
+/* 强制覆盖所有链接状态 */
+.issue-header:link,
+.issue-header:visited,
+.issue-header:hover,
+.issue-header:active {
+  color: rgba(0,0,0,0.45);
+  text-decoration: none;
+}
+
+.issue-header:hover {
+  color: rgba(0,0,0,0.8);
+}
+
+/* =====================
+   结尾留白（合书）
+   ===================== */
+
+.issue-page:last-child {
+  padding-bottom: 120px;
 }
