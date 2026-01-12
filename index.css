@@ -175,6 +175,10 @@ h2 {
    手机端：横向书架 · 一屏两本 · 更小更安静
    ========================================================= */
 
+/* =========================================================
+   手机端：首页书架（两本 + 半本 + 渐隐提示）
+   ========================================================= */
+
 @media (max-width: 768px) {
 
   body {
@@ -191,25 +195,69 @@ h2 {
     font-size: 16px;
   }
 
-  /* 横向滑动书架 */
+  /* =====================
+     横向书架（核心）
+     ===================== */
+
   .shelf {
     display: flex;
     gap: 16px;
+
     overflow-x: auto;
-    padding-bottom: 6px;
+    padding-right: 24px; /* 给“半本”留空间 */
 
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
+
+    position: relative;
   }
 
-  /* 一屏两本，但再小一档 */
+  /* =====================
+     单本书（两本 + 半本）
+     ===================== */
+
   .book {
     flex: 0 0 auto;
-    width: calc((100vw - 36px) / 2);
+    width: calc((100vw - 72px) / 2); /* 两本完整 + 第三本露出 */
     scroll-snap-align: start;
   }
 
-  /* 手机端文字整体压一档 */
+  /* =====================
+     右侧渐隐提示（还有内容）
+     ===================== */
+
+  .shelf::after {
+    content: "";
+    position: sticky;
+    right: 0;
+    top: 0;
+
+    width: 36px;
+    height: 100%;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+      to left,
+      #f6f6f6 0%,
+      rgba(246, 246, 246, 0) 100%
+    );
+  }
+
+  /* =====================
+     封面阴影（手机端更轻）
+     ===================== */
+
+  .cover {
+    box-shadow:
+      0 4px 8px rgba(0,0,0,0.14),
+      0 1px 2px rgba(0,0,0,0.08);
+  }
+
+  /* =====================
+     文字信息（手机端整体降一档）
+     ===================== */
+
   .meta {
     margin-top: 20px;
     font-size: 11px;
@@ -223,16 +271,8 @@ h2 {
     font-size: 13px;
     line-height: 1.55;
   }
-}
-
-@media (max-width: 768px) {
-
-  .cover {
-    box-shadow:
-      0 4px 8px rgba(0,0,0,0.14),
-      0 1px 2px rgba(0,0,0,0.08);
-  }
 
 }
+
 
 
