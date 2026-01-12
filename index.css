@@ -170,32 +170,23 @@ h2 {
 }
 
 
-/* =========================================================
-   手机端：横向书架 · 一屏两本 · 更小更安静
-   ========================================================= */
-
-/* =========================================================
-   手机端：首页书架（两本 + 半本 + 渐隐提示）
-   ========================================================= */
-
 @media (max-width: 768px) {
 
   body {
     padding: 20px 16px 40px;
   }
 
-  /* 分类之间距离收紧 */
   section {
     margin-bottom: 56px;
   }
 
   h2 {
     margin-bottom: 18px;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   /* =====================
-     横向书架（核心）
+     横向书架
      ===================== */
 
   .shelf {
@@ -203,7 +194,7 @@ h2 {
     gap: 16px;
 
     overflow-x: auto;
-    padding-right: 24px; /* 给“半本”留空间 */
+    padding-right: 40px;   /* 👈 第三本露头的关键 */
 
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
@@ -212,17 +203,17 @@ h2 {
   }
 
   /* =====================
-     单本书（两本 + 半本）
+     单本书（真正变小）
      ===================== */
 
   .book {
-  flex: 0 0 auto;
-  width: calc((100vw - 32px - 16px) / 2 - 14px);
-  scroll-snap-align: start;
-}
+    flex: 0 0 auto;
+    width: calc((100vw - 32px - 16px) / 2);
+    scroll-snap-align: start;
+  }
 
   /* =====================
-     右侧渐隐提示（还有内容）
+     右侧渐隐提示
      ===================== */
 
   .shelf::after {
@@ -233,45 +224,48 @@ h2 {
 
     width: 36px;
     height: 100%;
-
     pointer-events: none;
 
     background: linear-gradient(
       to left,
       #f6f6f6 0%,
-      rgba(246, 246, 246, 0) 100%
+      rgba(246,246,246,0) 100%
     );
   }
 
   /* =====================
-     封面阴影（手机端更轻）
+     字体（真正降一档）
+     ===================== */
+
+  .meta {
+    margin-top: 16px;
+    font-size: 10px;
+    color: #777;
+  }
+
+  .date {
+    font-size: 9px;
+    color: #aaa;
+  }
+
+  .title {
+    font-size: 11.5px;
+    line-height: 1.45;
+  }
+
+  /* =====================
+     封面阴影（更轻）
      ===================== */
 
   .cover {
     box-shadow:
-      0 4px 8px rgba(0,0,0,0.14),
-      0 1px 2px rgba(0,0,0,0.08);
-  }
-
-  /* =====================
-     文字信息（手机端整体降一档）
-     ===================== */
-
-  .meta {
-    margin-top: 20px;
-    font-size: 11px;
-  }
-
-  .date {
-    font-size: 10px;
-  }
-
-  .title {
-    font-size: 13px;
-    line-height: 1.55;
+      0 3px 6px rgba(0,0,0,0.12),
+      0 1px 2px rgba(0,0,0,0.06);
   }
 
 }
+
+
 
 
 
