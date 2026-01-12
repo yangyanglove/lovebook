@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>日常 · 第 2 期</title>
 
-  <!-- 内容页样式 -->
   <link rel="stylesheet" href="daily-0001.css">
 </head>
 
 <body>
 
-<a href="/" class="back-home">返回首页</a>
+<!-- 开头返回 -->
+<a href="/" class="issue-header">← 书架</a>
 
 <main class="issue">
 
@@ -49,7 +49,27 @@
 
 </main>
 
+<!-- 页尾导航 -->
+<footer class="issue-footer">
+  <div class="footer-nav">
+    <span>上一篇：没有了</span>
+    <a href="/">返回首页</a>
+    <a href="/pages/daily-0002.html">下一篇：第 2 期 · xxxx</a>
+  </div>
+</footer>
+
+<script>
+  // 阅读开始后隐藏顶部返回
+  const header = document.querySelector('.issue-header');
+  let hidden = false;
+
+  window.addEventListener('scroll', () => {
+    if (!hidden && window.scrollY > 40) {
+      header.classList.add('hidden');
+      hidden = true;
+    }
+  });
+</script>
+
 </body>
 </html>
-
-
