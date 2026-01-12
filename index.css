@@ -170,6 +170,11 @@ h2 {
 }
 
 
+/* =========================================================
+   手机端 · 首页书架（覆盖型终版）
+   适用于：样式被反复覆盖的情况
+   ========================================================= */
+
 @media (max-width: 768px) {
 
   body {
@@ -185,9 +190,11 @@ h2 {
     font-size: 15px;
   }
 
-  .shelf {
+  /* 注意：选择器刻意写得更具体 */
+  section .shelf {
     display: flex;
     gap: 16px;
+
     overflow-x: auto;
     padding-right: 40px;
 
@@ -196,17 +203,18 @@ h2 {
     position: relative;
   }
 
-  .book {
+  section .shelf .book {
     flex: 0 0 auto;
-    width: calc((100vw - 32px - 16px) / 2);
+    width: 38vw;              /* 一定能露出第三本 */
     scroll-snap-align: start;
   }
 
-  .shelf::after {
+  section .shelf::after {
     content: "";
     position: sticky;
     right: 0;
     top: 0;
+
     width: 36px;
     height: 100%;
     pointer-events: none;
@@ -221,10 +229,12 @@ h2 {
   .meta {
     margin-top: 16px;
     font-size: 10px;
+    color: #777;
   }
 
   .date {
     font-size: 9px;
+    color: #aaa;
   }
 
   .title {
@@ -239,18 +249,3 @@ h2 {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
