@@ -218,7 +218,7 @@ h2 {
 
   .book {
     flex: 0 0 auto;
-    width: 45.5vw; /* 两本完整 + 第三本露出 */
+    width: 41vw; /* 两本完整 + 第三本露出 */
     scroll-snap-align: start;
   }
 
@@ -273,6 +273,7 @@ h2 {
   }
 
 }
+
 
 
 
