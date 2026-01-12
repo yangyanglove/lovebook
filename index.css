@@ -217,10 +217,10 @@ h2 {
      ===================== */
 
   .book {
-    flex: 0 0 auto;
-    width: 41vw; /* 两本完整 + 第三本露出 */
-    scroll-snap-align: start;
-  }
+  flex: 0 0 auto;
+  width: calc((100vw - 32px - 16px) / 2 - 8px);
+  scroll-snap-align: start;
+}
 
   /* =====================
      右侧渐隐提示（还有内容）
@@ -273,6 +273,7 @@ h2 {
   }
 
 }
+
 
 
 
