@@ -185,26 +185,16 @@ h2 {
     font-size: 15px;
   }
 
-  /* =====================
-     横向书架
-     ===================== */
-
   .shelf {
     display: flex;
     gap: 16px;
-
     overflow-x: auto;
-    padding-right: 40px;   /* 👈 第三本露头的关键 */
+    padding-right: 40px;
 
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-
     position: relative;
   }
-
-  /* =====================
-     单本书（真正变小）
-     ===================== */
 
   .book {
     flex: 0 0 auto;
@@ -212,16 +202,11 @@ h2 {
     scroll-snap-align: start;
   }
 
-  /* =====================
-     右侧渐隐提示
-     ===================== */
-
   .shelf::after {
     content: "";
     position: sticky;
     right: 0;
     top: 0;
-
     width: 36px;
     height: 100%;
     pointer-events: none;
@@ -233,29 +218,19 @@ h2 {
     );
   }
 
-  /* =====================
-     字体（真正降一档）
-     ===================== */
-
   .meta {
     margin-top: 16px;
     font-size: 10px;
-    color: #777;
   }
 
   .date {
     font-size: 9px;
-    color: #aaa;
   }
 
   .title {
     font-size: 11.5px;
     line-height: 1.45;
   }
-
-  /* =====================
-     封面阴影（更轻）
-     ===================== */
 
   .cover {
     box-shadow:
@@ -264,6 +239,8 @@ h2 {
   }
 
 }
+
+
 
 
 
