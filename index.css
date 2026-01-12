@@ -205,7 +205,7 @@ h2 {
   /* 一屏两本，但再小一档 */
   .book {
     flex: 0 0 auto;
-    width: calc((100vw - 48px) / 2);
+    width: calc((100vw - 56px) / 2);
     scroll-snap-align: start;
   }
 
@@ -234,3 +234,4 @@ h2 {
   }
 
 }
+
