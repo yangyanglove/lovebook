@@ -56,10 +56,6 @@ html, body {
   }
 }
 
-/* =====================
-   开头 · 返回书架（只在开头）
-   ===================== */
-
 .issue-header {
   position: fixed;
   top: 14px;
@@ -72,13 +68,7 @@ html, body {
   color: rgba(0,0,0,0.45);
   text-decoration: none;
 
-  transition: opacity .3s ease;
   -webkit-tap-highlight-color: transparent;
-}
-
-.issue-header.hidden {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .issue-header:link,
@@ -93,10 +83,7 @@ html, body {
   color: rgba(0,0,0,0.8);
 }
 
-/* =====================
-   结尾 · 页尾导航（合书）
-   ===================== */
-
+/* 页尾 */
 .issue-footer {
   padding: 80px 16px 40px;
 }
@@ -105,7 +92,6 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-
   font-size: 12px;
   color: #777;
 }
@@ -115,6 +101,3 @@ html, body {
   text-decoration: none;
 }
 
-.footer-nav a:hover {
-  color: rgba(0,0,0,0.9);
-}
