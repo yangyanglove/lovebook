@@ -82,6 +82,12 @@ html, body {
   pointer-events: none;
 }
 
+.issue-header.bottom {
+  top: auto;
+  bottom: 14px;
+}
+
+
 /* 强制覆盖所有链接状态 */
 .issue-header:link,
 .issue-header:visited,
@@ -102,3 +108,4 @@ html, body {
 .issue-page:last-child {
   padding-bottom: 120px;
 }
+
