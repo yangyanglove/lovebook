@@ -10,8 +10,8 @@
 
 <body>
 
-<!-- 顶部返回（现在先常驻） -->
-<a href="/" class="issue-header">← 书架</a>
+<!-- 顶部返回 · 仅在未阅读时出现 -->
+<a href="/" class="issue-header">返回书架</a>
 
 <main class="issue">
 
@@ -49,24 +49,18 @@
 
 </main>
 
-<!-- 页尾导航（现在就会显示） -->
-<footer class="issue-footer">
-  <div class="footer-nav">
-    <a href="/memory/memory-0001/memory-0001.html" class="prev">
-      上一篇：第 1 期，圣诞特辑
-    </a>
+<!-- 极简 JS：开始阅读后隐藏顶部返回 -->
+<script>
+  const header = document.querySelector('.issue-header');
+  let hidden = false;
 
-    <a href="/" class="home">
-      返回首页
-    </a>
-
-    <a href="/daily/daily-0002/daily-0002.html" class="next">
-      下一篇：第 3 期，爱，比声音要轻
-    </a>
-  </div>
-</footer>
+  window.addEventListener('scroll', () => {
+    if (!hidden && window.scrollY > 40) {
+      header.classList.add('hidden');
+      hidden = true;
+    }
+  });
+</script>
 
 </body>
 </html>
-
-
