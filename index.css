@@ -1,36 +1,16 @@
-/* =====================
-   Fonts（必须最先）
-   ===================== */
-
 @font-face {
   font-family: "BookSerif";
   src: url("fonts/SourceHanSerifSC-Regular.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
   font-display: swap;
 }
-
-/* =====================
-   桌面 / 全局
-   ===================== */
 
 body {
   margin: 0;
   padding: clamp(28px, 6vw, 72px);
-  background: #f6f6f6; /* 桌面灰，不是纸 */
+  background: #f6f6f6;
   color: #111;
-
-  /* ⚠️ 真正生效的宋体方案 */
-  font-family:
-    "BookSerif",
-    "Noto Serif SC",
-    "STSong",
-    serif;
+  font-family: "BookSerif", "Noto Serif SC", serif;
 }
-
-/* =====================
-   分类区块（桌面）
-   ===================== */
 
 section {
   margin-bottom: 120px;
@@ -42,9 +22,7 @@ h2 {
   margin: 0 0 36px;
 }
 
-/* =====================
-   书架（桌面：网格）
-   ===================== */
+/* ===== 书架（桌面） ===== */
 
 .shelf {
   display: grid;
@@ -52,106 +30,26 @@ h2 {
   gap: 64px 56px;
 }
 
-/* =====================
-   单本书
-   ===================== */
-
 .book {
   text-decoration: none;
   color: inherit;
 }
 
-/* =====================
-   封面（电子书 · 印刷感）
-   ===================== */
-
 .cover {
-  position: relative;
-  width: 100%;
-
-  /* A5 比例 */
   aspect-ratio: 148 / 210;
-
   overflow: hidden;
   border-radius: 3px;
-
   box-shadow:
     0 6px 12px rgba(0,0,0,0.22),
     0 1px 3px rgba(0,0,0,0.12);
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
 }
-
-/* ===== 左侧假书脊（压痕） ===== */
-
-.cover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.30),
-    rgba(0,0,0,0.14),
-    rgba(0,0,0,0.02)
-  );
-
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* ===== 彩印封面高光（极轻） ===== */
-
-.cover::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 22%;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.18),
-    rgba(255,255,255,0)
-  );
-
-  z-index: 3;
-  pointer-events: none;
-}
-
-/* ===== 封面图片 ===== */
 
 .cover img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 图片自带白边 = 纸 */
+  object-fit: contain;
   display: block;
-  background: transparent;
 }
-
-/* =====================
-   hover（桌面）
-   ===================== */
-
-.book:hover .cover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.30),
-    0 8px 18px rgba(0,0,0,0.16);
-}
-
-/* =====================
-   文字信息（桌面）
-   ===================== */
 
 .meta {
   margin-top: 18px;
@@ -169,11 +67,7 @@ h2 {
   line-height: 1.5;
 }
 
-
-/* =========================================================
-   手机端 · 首页书架（覆盖型终版）
-   适用于：样式被反复覆盖的情况
-   ========================================================= */
+/* ===== 手机端 ===== */
 
 @media (max-width: 768px) {
 
@@ -190,68 +84,43 @@ h2 {
     font-size: 15px;
   }
 
-  /* 注意：选择器刻意写得更具体 */
-  section .shelf {
-    display: flex;
-    gap: 16px;
-
-    overflow-x: auto;
-    padding-right: 40px;
-
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+  .shelf-wrap {
     position: relative;
   }
 
-  section .shelf .book {
+  .shelf {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-right: 24px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .book {
     flex: 0 0 auto;
-    width: 38vw;              /* 一定能露出第三本 */
+    width: 38vw;
     scroll-snap-align: start;
   }
 
-  section .shelf::after {
+  .shelf-wrap::after {
     content: "";
-    position: sticky;
-    right: 0;
+    position: absolute;
     top: 0;
-
-    width: 36px;
+    right: 0;
+    width: 32px;
     height: 100%;
     pointer-events: none;
-
     background: linear-gradient(
       to left,
-      #f6f6f6 0%,
-      rgba(246,246,246,0) 100%
+      #f6f6f6,
+      rgba(246,246,246,0)
     );
   }
 
-  .meta {
-    margin-top: 16px;
-    font-size: 10px;
-    color: #777;
-  }
-
-  .date {
-    font-size: 9px;
-    color: #aaa;
-  }
-
-  .title {
-    font-size: 11.5px;
-    line-height: 1.45;
-  }
-
   .cover {
-  transform: scale(0.98);
-  transform-origin: top center;
-
-  box-shadow:
-    0 3px 6px rgba(0,0,0,0.12),
-    0 1px 2px rgba(0,0,0,0.06);
+    box-shadow:
+      0 3px 6px rgba(0,0,0,0.12),
+      0 1px 2px rgba(0,0,0,0.06);
+  }
 }
-
-}
-
-
-
